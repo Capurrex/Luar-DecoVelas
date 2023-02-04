@@ -1,0 +1,34 @@
+//variables
+$color1:#8415B8;
+$color2:#9C7AA9;
+$color3:#FFE8FF;
+$color4:#5FBAB0;
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+//header
+
+header{
+    background-image: url(../imgs/fondo1.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    color: $color1;
+    font-size: 5rem;
+    font-family: 'Alice', serif;
+}
+
+#logoPrincipal{
+    border-radius: 50%;
+}
+
+h2{
+    color: $color1;
+    font-size: 3rem;
+    font-family: 'Raleway', sans-serif;
+}

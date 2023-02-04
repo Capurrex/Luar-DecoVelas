@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-image: url(../imgs/fondo1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  color: #8415B8;
+  font-size: 5rem;
+  font-family: "Alice", serif;
+}
+
+#logoPrincipal {
+  border-radius: 50%;
+}
+
+h2 {
+  color: #8415B8;
+  font-size: 3rem;
+  font-family: "Raleway", sans-serif;
+}/*# sourceMappingURL=estilos.css.map */
