@@ -4,9 +4,11 @@
 }
 
 header {
+  background-color: #9C7AA9;
   background-image: url(../imgs/fondo1.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
 }
 
 h1 {
@@ -23,4 +25,18 @@ h2 {
   color: #8415B8;
   font-size: 3rem;
   font-family: "Raleway", sans-serif;
+}
+
+h3 {
+  color: #8415B8;
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.barraBusqueda {
+  background-color: #5FBAB0;
+}
+
+.mitad {
+  width: 50%;
 }/*# sourceMappingURL=estilos.css.map */
