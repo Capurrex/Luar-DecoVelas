@@ -37,7 +37,7 @@
   <!--comienza body-->
   <body>
     <!--header-->
-    <header class="container-fluid row align-items-center">
+    <header class=" row align-items-center">
       <h1 class="col-lg-5 text-center">LUAR</h1>
       <img
         src="imgs/logo.png"
@@ -45,7 +45,7 @@
         id="logoPrincipal"
         class="col-lg-2 col-6 justify-content-center"
       />
-      <h2 class="col-lg-5 text-center">Deco Velas</h2>
+      <h2 class="col-lg-5 text-align-center">Deco Velas</h2>
     </header>
     <!--Tienda-->
     <nav class="navbar barraBusqueda">
@@ -82,7 +82,8 @@
       </div>
     </nav>
     <!--catalogo-->
-    <div class="container"></div>
+    <div class="container" ></div>
+      <div id="verCatalogo" class="row"></div>
       <div id="match"></div>
     </div>
     <!--scripts ajenos-->
@@ -93,45 +94,6 @@
     ></script>
     <!--script propios-->
     <script src="js/main.js"></script>
-    
-    <!--div para catalogo-->
-    <div>
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-          <div class="row">
-            <ul class="mitad">
-              <select
-                id="selectOrden"
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-              >
-                <option selected>Ordenar por:</option>
-                <option value="1">Mayor a menor</option>
-                <option value="2">Menor a mayor</option>
-                <option value="3">Alfabeticamente</option>
-              </select>
-            </ul>
-            <ul class="mitad">
-              <select
-                id="selectOrden"
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-              >
-                <option selected>Ordenar por:</option>
-                <option value="1">Mayor a menor</option>
-                <option value="2">Menor a mayor</option>
-                <option value="3">Alfabeticamente</option>
-              </select>
-            </ul>
-          </div>
-        </div>
-    </div>
   </body>
   <!--termina body-->
 </html>

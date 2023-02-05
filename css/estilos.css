@@ -4,7 +4,7 @@
 }
 
 header {
-  background-color: #9C7AA9;
+  background-color: #b5aab9;
   background-image: url(../imgs/fondo1.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -39,4 +39,8 @@ h3 {
 
 .mitad {
   width: 50%;
+}
+
+.card {
+  background-color: #5FBAB0;
 }/*# sourceMappingURL=estilos.css.map */
