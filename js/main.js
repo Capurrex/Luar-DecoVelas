@@ -15,9 +15,10 @@ if(localStorage.getItem("catalogo")){
   catalogo = JSON.parse(localStorage.getItem("catalogo"))
 }*/
 
-//Capturas nodos DOM:
+//capturas nodos 
 let verCatalogo = document.getElementById("verCatalogo")
 let match = document.getElementById("match")
+let chartModal = document.getElementById("chartModal")
 
 //funciones
 
@@ -33,7 +34,7 @@ function mostrarCatalogo(array){
           <p class="card-text">
             ${vela.descripcion}. Precio: $ ${vela.precio}
           </p>
-          <a href="" class="btn addChart">Agregar al carrito</a>
+          <a  id ="carritov${vela.id}" class="btn">Agregar al carrito</a>
           <div class="row">
             <ul class="mitad">
               <select
@@ -58,12 +59,44 @@ function mostrarCatalogo(array){
           </div>
         </div>
     </div>`
-
+    
      verCatalogo.appendChild(nuevaVela)
+
+     let botonCarrito = document.getElementById(`carritov${vela.id}`)
+         
+        botonCarrito.addEventListener("click", ()=>{addChart(vela)})
+
+
   }}
 
 
+function addChart (vela) {
+  chartItems.push(vela)
+  localStorage.setItem("chart", JSON.stringify(chartItems))
+}
 
+function showChart(array){
+
+  for(let item of array){
+      let newItem = document.createElement("div")
+
+      newItem.innerHTML = `<div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="${item.imagen}" class="img-fluid rounded-start imgSizeAdjust" alt="${item.imgAlt}">
+        </div>
+        <div class="col-md-8 text-center hstack">
+          <div class="card-body align-evenly">
+            <h5 class="card-title">${item.nombre}</h5>
+            <p class="card-text">${item.descripcion} <br> Color:$colo{}  Aroma:$aroma{}  Precio: $ ${item.precio  } </p>
+            <a id="removeCh${item.id}" class="btn btn-danger">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+      `
+     chartModal.appendChild(newItem)
+    }}
 
 //instanciacion
 
@@ -110,12 +143,13 @@ const aromasVelas = [
 ];
 
 const coloresVelas= [
-  "rosa", "verde", "azul", "naranja", "amarillo", "gris", "beige", "blanco", "violeta"
-]
-// captura de nodos
+  "rosa", "verde", "azul", "naranja", "amarillo", "gris", "beige", "blanco", "violeta"]
 
-
+let chartItems = JSON.parse(localStorage.getItem("chart")) || []
+console.log(chartItems)
 // eventos
-//grupoVelas.sort((a, b) => b.precio - a.precio);
+
+showChart(chartItems)
 
 mostrarCatalogo(grupoVelas)
+
