@@ -93,8 +93,7 @@ function showChart(array){
           </div>
         </div>
       </div>
-    </div>
-      `
+    </div>`
      chartModal.appendChild(newItem)
     }}
 
@@ -146,7 +145,7 @@ const coloresVelas= [
   "rosa", "verde", "azul", "naranja", "amarillo", "gris", "beige", "blanco", "violeta"]
 
 let chartItems = JSON.parse(localStorage.getItem("chart")) || []
-console.log(chartItems)
+
 // eventos
 
 showChart(chartItems)
