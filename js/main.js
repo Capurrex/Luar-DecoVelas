@@ -143,12 +143,11 @@ const aromasVelas = [
 
 const coloresVelas= [
   "rosa", "verde", "azul", "naranja", "amarillo", "gris", "beige", "blanco", "violeta"]
+chartItems=[]
 
 let chartItems = JSON.parse(localStorage.getItem("chart")) || []
 
 // eventos
-
-showChart(chartItems)
 
 mostrarCatalogo(grupoVelas)
 
