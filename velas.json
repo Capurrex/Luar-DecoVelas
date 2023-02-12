@@ -1,0 +1,106 @@
+[
+{
+    "id":"1",
+    "nombre":"Woolen ball",
+    "precio":150,
+    "imagen":"imgs/woolen.jpg",
+    "imagenAlt":"imagen vela woolen ball",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"2",
+    "nombre":"Bubble",
+    "precio":350,
+    "imagen":"imgs/bubble.jpg",
+    "imagenAlt":"imagen vela mini bubble",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"3",
+    "nombre":"Mini bubble",
+    "precio":100,
+    "imagen":"imgs/minibubble.jpg",
+    "imagenAlt":"imagen vela luna llena",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"4",
+    "nombre":"Onion",
+    "precio":180,
+    "imagen":"imgs/onion.jpg",
+    "imagenAlt":"imagen vela luna nueva",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"5",
+    "nombre":"Luna llena",
+    "precio":550,
+    "imagen":"imgs/lunallena.jpg",
+    "imagenAlt":"imagen vela luna llena",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"6",
+    "nombre":"Luna nueva",
+    "precio":450,
+    "imagen":"imgs/lunanueva.jpg",
+    "imagenAlt":"imagen vela cuarto menguante",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"7",
+    "nombre":"Cuarto creciente",
+    "precio":350,
+    "imagen":"imgs/cuartocreciente.jpg",
+    "imagenAlt":"imagen vela cuarto creciente",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"8",
+    "nombre":"Cuarto menguante",
+    "precio":300,
+    "imagen":"imgs/cuartomenguante.jpg",
+    "imagenAlt":"imagen vela cuarto menguante",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"9",
+    "nombre":"Yue",
+    "precio":200,
+    "imagen":"imgs/yue.jpg",
+    "imagenAlt":"imagen vela yue",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"10",
+    "nombre":"Lúa",
+    "precio":200,
+    "imagen":"imgs/lua.jpg",
+    "imagenAlt":"imagen vela lua",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"11",
+    "nombre":"Bombones de cera X 5",
+    "precio":100,
+    "imagen":"imgs/bombones.jpg",
+    "imagenAlt":"imagen de los bombones de aroma",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"12",
+    "nombre":"Hornito + 5 bombones y 2 velas de encendido",
+    "precio":350,
+    "imagen":"imgs/hornito.jpg",
+    "imagenAlt":"imagen hornito y bombones",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"13",
+    "nombre":"Flower",
+    "precio":150,
+    "imagen":"imgs/flower.jpg",
+    "imagenAlt":"imagen vela flower",
+    "descripcion":"pedir la descripcion"
+}
+]

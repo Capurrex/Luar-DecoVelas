@@ -22,11 +22,11 @@ let chartModal = document.getElementById("chartModal")
 
 //funciones
 
-function mostrarCatalogo(array){
+function mostrarCatalogo(arrVela,arrAroma,arrColor){
   verCatalogo.innerHTML = ""
-  for(let vela of array){
+  for(let vela of arrVela){
       let nuevaVela = document.createElement("div")
-      nuevaVela.classList.add ("col-lg-3", "col-sm-6","row")
+      nuevaVela.classList.add ("col-xl-2","col-md-3", "col-6","row")
       nuevaVela.innerHTML = ` <div id="v${vela.id}" class="card row">
         <img src="${vela.imagen}" class="card-img-top" alt="${vela.imgAlt}" />
         <div class="card-body">
@@ -40,26 +40,25 @@ function mostrarCatalogo(array){
               <select
                 id="selectAroma"
                 class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-              >
-                <option selected>Elije el aroma</option>
-                <option value="1">poner aromas</option>
+                aria-label=".form-select-sm example">
+                  <option selected>Elije el aroma</option>
               </select>
             </ul>
             <ul class="mitad">
               <select
                 id="selectColor"
                 class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-              >
-                <option selected>Elije el color</option>
-                <option value="1">poner colores</option>
+                aria-label=".form-select-sm example">
+                  <option selected>Elije el color</option>
               </select>
             </ul>
           </div>
         </div>
     </div>`
     
+
+// <option value="1">poner colores</option>
+
      verCatalogo.appendChild(nuevaVela)
 
      let botonCarrito = document.getElementById(`carritov${vela.id}`)
