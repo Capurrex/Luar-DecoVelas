@@ -1,4 +1,3 @@
-clase12.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +8,8 @@ clase12.html
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!--Toastify-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <!--CSS-->
     <link rel="stylesheet" href="estilos.css">
 
@@ -57,6 +58,12 @@ clase12.html
 
       <div class="container m-4">
         <div class="row">
+          <div id="fecha" class="col-3">
+
+          </div>
+          <div id="reloj">
+
+          </div>
             <div class="col-3">
                 
                 <button id="botonDarkMode" class="btn btn-dark">Dark</button>
@@ -79,24 +86,18 @@ clase12.html
 
     
     
-    <!-- <div class="container m-3">
-      <div class="row">
-        <div class="col-4">
-
-          <button id="verCatalogo" class="btn btn-success">Ver Catálogo</button>
-        </div>
-        <div class="col-4">
-          <button id="ocultarCatalogo" class="btn btn-success">Ocultar Catálogo</button>
-          
-        </div>
-      </div>
-    </div> -->
     
     <div class="container">
       <div id="coincidencia"></div>
       <div id="libros" class="row"></div>
     </div>
-
+    <!--Loader-->
+    <h3 id="loaderTexto" class="text-success text-center">Cargando Productos...</h3>
+    <div id="loader" class="d-flex justify-content-center">
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden"></span>
+      </div>
+    </div>
     
     <!--Modals-->
     <!--Modal Agregar Libro-->
@@ -108,7 +109,7 @@ clase12.html
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="modal-body">
-            <form>
+            <form id="formAgregarLibro">
               <div class="mb-3">
                 <label for="titulo" class="form-label">Titulo</label>
                 <input type="text" class="form-control" id="tituloInput" aria-describedby="titulo">
@@ -162,6 +163,12 @@ clase12.html
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
 </script>
+<!--Script Sweet Alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--Script Toastify-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<!--Script Luxon-->
+<script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
 <!--Archivos JS propios-->
 <script src="JS/class.js"></script>
 <script src="JS/main.js"></script>

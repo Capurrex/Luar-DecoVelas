@@ -89,14 +89,38 @@
 },
 {
     "id":"12",
-    "nombre":"Hornito + 5 bombones y 2 velas de encendido",
+    "nombre":"Hornito beige + 5 bombones y 2 velas de encendido",
     "precio":350,
-    "imagen":"imgs/hornito.jpg",
+    "imagen":"imgs/hornitogenerico.jpg",
     "imagenAlt":"imagen hornito y bombones",
     "descripcion":"pedir la descripcion"
 },
 {
     "id":"13",
+    "nombre":"Hornito marrón + 5 bombones y 2 velas de encendido",
+    "precio":350,
+    "imagen":"imgs/hornitomarron.jpg",
+    "imagenAlt":"imagen hornito y bombones",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"14",
+    "nombre":"Hornito amarillo + 5 bombones y 2 velas de encendido",
+    "precio":350,
+    "imagen":"imgs/hornitogenerico.jpg",
+    "imagenAlt":"imagen hornito y bombones",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"15",
+    "nombre":"Hornito verde + 5 bombones y 2 velas de encendido",
+    "precio":350,
+    "imagen":"imgs/hornitoverde.jpg",
+    "imagenAlt":"imagen hornito y bombones",
+    "descripcion":"pedir la descripcion"
+},
+{
+    "id":"16",
     "nombre":"Flower",
     "precio":150,
     "imagen":"imgs/flower.jpg",
