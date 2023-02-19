@@ -75,7 +75,7 @@ function mostrarCatalogo(arrVela) {
                   <option value="Rosa">Rosa</option>
                   <option value="Verde">Verde</option>
                   <option value="Azul">Azul</option>
-                  <option value="Amarrillo">Amarillo</option>
+                  <option value="Amarillo">Amarillo</option>
                   <option value="Gris">Gris</option>
                   <option value="Beige">Beige</option>
                   <option value="Naranja">Naranja</option>
@@ -100,17 +100,28 @@ function mostrarCatalogo(arrVela) {
 }
 
 function addChart(vela, selectAroma, selectColor ) {
-  // agregar color y aroma a vela ¿como?
-  if(selectAroma.value === "Elije el aroma" || selectColor.value === "Elije el color") {swal.fire({
+  let cargandoAlCarrito = chartItems.find((item) => item.id == vela.id && item.color.trim() == selectColor.value.trim() && item.aroma.trim() == selectAroma.value.trim());
+
+  console.log(cargandoAlCarrito)
+  if(selectAroma.value === "Elije el aroma" || selectColor.value === "Elije el color")
+   {swal.fire({
     icon : `info`,
     text : `Debes elegir color y aroma para agregar al carrito`});}
-  else{
-  vela.color = `${selectColor.value}`;
-  vela.aroma =`${selectAroma.value}`;
-  chartItems.push(vela);
-  (vela.id = vela.id, vela.aroma=vela.aroma)
-  localStorage.setItem("chart", JSON.stringify(chartItems))};
+  
+  else if(cargandoAlCarrito == undefined){
+    let nuevaVela = new velas(vela.id, vela.nombre, vela.precio, vela.imagen, vela.imgAlt, vela.descripcion);
+    nuevaVela.color = selectColor.value;
+    nuevaVela.aroma = selectAroma.value;
+    chartItems.push(nuevaVela);
+    localStorage.setItem("chart", JSON.stringify(chartItems));
+  }
+  
+  else {
+    cargandoAlCarrito.cantidad += 1;
+    localStorage.setItem("chart", JSON.stringify(chartItems))
+    }
 }
+
 
 function showChart(array) {
   for (let item of array) {
@@ -124,7 +135,7 @@ function showChart(array) {
         <div class="col-md-8 text-center hstack">
           <div class="card-body align-evenly">
             <h5 class="card-title">${item.nombre}</h5>
-            <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br> Precio: $ ${item.precio} </p>
+            <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br>Cantidad: ${item.cantidad} Precio: $ ${item.precio}</p>
             <a id="removeCh${item.id}" class="btn btn-danger">Eliminar</a>
           </div>
         </div>
@@ -133,6 +144,7 @@ function showChart(array) {
     chartModal.appendChild(newItem);
   }
 }
+
 
 //instanciacion
 
@@ -146,4 +158,3 @@ Catalogo();
 
 showChart(chartItems);
 
-//console.log(grupoVelas)
