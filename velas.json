@@ -93,7 +93,7 @@
     "precio":350,
     "imagen":"imgs/hornitogenerico.jpg",
     "imagenAlt":"imagen hornito y bombones",
-    "descripcion":"pedir la descripcion"
+    "descripcion":"pedir la descripcion, el color y aroma seleccionado corresponde a los bombones"
 },
 {
     "id":"13",
@@ -101,7 +101,7 @@
     "precio":350,
     "imagen":"imgs/hornitomarron.jpg",
     "imagenAlt":"imagen hornito y bombones",
-    "descripcion":"pedir la descripcion"
+    "descripcion":"pedir la descripcion, el color y aroma seleccionado corresponde a los bombones"
 },
 {
     "id":"14",
@@ -109,7 +109,7 @@
     "precio":350,
     "imagen":"imgs/hornitogenerico.jpg",
     "imagenAlt":"imagen hornito y bombones",
-    "descripcion":"pedir la descripcion"
+    "descripcion":"pedir la descripcion, el color y aroma seleccionado corresponde a los bombones"
 },
 {
     "id":"15",
@@ -117,7 +117,7 @@
     "precio":350,
     "imagen":"imgs/hornitoverde.jpg",
     "imagenAlt":"imagen hornito y bombones",
-    "descripcion":"pedir la descripcion"
+    "descripcion":"pedir la descripcion, el color y aroma seleccionado corresponde a los bombones"
 },
 {
     "id":"16",

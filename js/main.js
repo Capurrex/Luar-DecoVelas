@@ -101,7 +101,9 @@ function mostrarCatalogo(arrVela) {
 
 function addChart(vela, selectAroma, selectColor ) {
   // agregar color y aroma a vela ¿como?
-  if(selectAroma.value === "Elije el aroma" || selectColor.value === "Elije el color") {alert(`Debes elegir color y aroma para agregar al carrito`);}
+  if(selectAroma.value === "Elije el aroma" || selectColor.value === "Elije el color") {swal.fire({
+    icon : `info`,
+    text : `Debes elegir color y aroma para agregar al carrito`});}
   else{
   vela.color = `${selectColor.value}`;
   vela.aroma =`${selectAroma.value}`;
