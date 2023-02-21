@@ -42,7 +42,7 @@ function mostrarCatalogo(arrVela) {
   verCatalogo.innerHTML = "";
   for (let vela of arrVela) {
     let nuevaVela = document.createElement("div");
-    nuevaVela.classList.add("col-xl-3", "col-md-4", "col-6", "row");
+    nuevaVela.classList.add("col-xl-3", "col-md-4", "col-sm-6","col-10","offset-1","offset-sm-0", "row");
     nuevaVela.innerHTML = ` <div id="${vela.id}" class="card row ">
         <img src="${vela.imagen}" class="card-img-top" alt="${vela.imgAlt}" />
         <div class="card-body">
@@ -50,8 +50,7 @@ function mostrarCatalogo(arrVela) {
           <p class="card-text">
             ${vela.descripcion}. Precio: $ ${vela.precio}
           </p>
-          <a  id ="carritov${vela.id}" class="btn">Agregar al carrito</a>
-          <div class="row">
+          <div class="row ">
             <ul class="mitad">
               <select
                 id="aroma${vela.id}"
@@ -85,6 +84,7 @@ function mostrarCatalogo(arrVela) {
                   <option value="Violeta">Violeta</option>
               </select>
             </ul>
+            <a  id ="carritov${vela.id}" class="btn btn-success">Agregar al carrito</a>
           </div>
         </div>
     </div>`;
