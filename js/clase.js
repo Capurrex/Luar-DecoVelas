@@ -437,6 +437,8 @@ function ordenar(array){
     }
 }
 
+// caca de gtp
+
 //para agregar height a jhon en un array dinamico
 
 var people = [  { name: "John", age: 30 },  { name: "Jane", age: 28 }];
@@ -447,3 +449,4 @@ for (var i = 0; i < people.length; i++) {
     break;
   }
 }
+

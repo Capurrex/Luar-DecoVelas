@@ -16,7 +16,7 @@ class velas {
 let verCatalogo = document.getElementById("verCatalogo");
 let match = document.getElementById("match");
 let chartModal = document.getElementById("chartModal");
-
+let botonModal = document.getElementById("botonModal")
 //funciones
 
 const Catalogo = async () => {
@@ -40,8 +40,8 @@ function mostrarCatalogo(arrVela) {
   verCatalogo.innerHTML = "";
   for (let vela of arrVela) {
     let nuevaVela = document.createElement("div");
-    nuevaVela.classList.add("col-xl-2", "col-md-3", "col-6", "row");
-    nuevaVela.innerHTML = ` <div id="${vela.id}" class="card row">
+    nuevaVela.classList.add("col-xl-3", "col-md-4", "col-6", "row");
+    nuevaVela.innerHTML = ` <div id="${vela.id}" class="card row ">
         <img src="${vela.imagen}" class="card-img-top" alt="${vela.imgAlt}" />
         <div class="card-body">
           <h5 class="card-title">${vela.nombre}</h5>
@@ -112,6 +112,7 @@ function addChart(vela, selectAroma, selectColor ) {
     let nuevaVela = new velas(vela.id, vela.nombre, vela.precio, vela.imagen, vela.imgAlt, vela.descripcion);
     nuevaVela.color = selectColor.value;
     nuevaVela.aroma = selectAroma.value;
+    nuevaVela.idChart = vela.id+nuevaVela.color+nuevaVela.aroma;
     chartItems.push(nuevaVela);
     localStorage.setItem("chart", JSON.stringify(chartItems));
   }
@@ -128,21 +129,23 @@ function showChart(array) {
     let newItem = document.createElement("div");
 
     newItem.innerHTML = `<div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
+      <div class="d-flex align-items-center">
+        <div class="col-4">
           <img src="${item.imagen}" class="img-fluid rounded-start imgSizeAdjust" alt="${item.imgAlt}">
         </div>
         <div class="col-md-8 text-center hstack">
           <div class="card-body align-evenly">
             <h5 class="card-title">${item.nombre}</h5>
-            <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br>Cantidad: ${item.cantidad} Precio: $ ${item.precio}</p>
-            <a id="removeCh${item.id}" class="btn btn-danger">Eliminar</a>
+            <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br>Cantidad: ${item.cantidad} Precio: $ ${item.precio}*${item.cantidad}</p>
+            <a id="remove${item.idChart}" class="btn btn-danger">Eliminar</a>
           </div>
         </div>
       </div>
     </div>`;
     chartModal.appendChild(newItem);
   }
+
+
 }
 
 
@@ -157,4 +160,6 @@ let chartItems = JSON.parse(localStorage.getItem("chart")) || [];
 Catalogo();
 
 showChart(chartItems);
+
+
 
