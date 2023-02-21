@@ -49,7 +49,7 @@ console.log(estanteria)
 
 
 
-main.js
+//main.js
 //PROYECTO:
 
 //Capturas nodos DOM:
@@ -220,7 +220,7 @@ function cargarProductosCarrito(array){
     calcularTotal(array)
 }
 function calcularTotal(array){
-    let total = array.reduce((acc, productoCarrito)=> acc + productoCarrito.precio ,0)
+    let total = array.reduce((acc, productoCarrito)=> acc + (productoCarrito.precio*productoCarrito.cantidad) ,0)
     // console.log("Con reduce " +total)
 
     // let acumulador = 0
@@ -437,6 +437,9 @@ function ordenar(array){
     }
 }
 
+
+
+
 // caca de gtp
 
 //para agregar height a jhon en un array dinamico
@@ -450,3 +453,20 @@ for (var i = 0; i < people.length; i++) {
   }
 }
 
+//array de productosComprados
+//let productosEnCarrito = []
+if(localStorage.getItem("carrito")){
+    
+    for(let libro of JSON.parse(localStorage.getItem("carrito"))){
+        //para conservar la cantidad del storage
+        let cantStorage = libro.cantidad
+        let libroCarrito = new Libro(libro.id, libro.autor, libro.titulo, libro.precio, libro.imagen)
+        libroCarrito.cantidad = cantStorage
+        productosEnCarrito.push(libroCarrito)
+    }
+    console.log(productosEnCarrito)
+}else{
+    productosEnCarrito = []
+}
+
+// let productosEnCarrito = JSON.parse(localStorage.getItem("carrito")) || []

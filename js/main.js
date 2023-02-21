@@ -16,7 +16,9 @@ class velas {
 let verCatalogo = document.getElementById("verCatalogo");
 let match = document.getElementById("match");
 let chartModal = document.getElementById("chartModal");
-let botonModal = document.getElementById("botonModal")
+let botonModal = document.getElementById("botonModal");
+let precioTotal = document.getElementById("precioTotal");
+let vaciarCarrito = document.getElementById("vaciarCarrito")
 //funciones
 
 const Catalogo = async () => {
@@ -102,7 +104,6 @@ function mostrarCatalogo(arrVela) {
 function addChart(vela, selectAroma, selectColor ) {
   let cargandoAlCarrito = chartItems.find((item) => item.id == vela.id && item.color.trim() == selectColor.value.trim() && item.aroma.trim() == selectAroma.value.trim());
 
-  console.log(cargandoAlCarrito)
   if(selectAroma.value === "Elije el aroma" || selectColor.value === "Elije el color")
    {swal.fire({
     icon : `info`,
@@ -123,12 +124,15 @@ function addChart(vela, selectAroma, selectColor ) {
     }
 }
 
+function chartTotal(array){
+  let total = array.reduce((acc, velaCarrito)=> acc + (velaCarrito.precio*velaCarrito.cantidad) ,0)
+  total == 0 ? precioTotal.innerHTML =  `El carrito esta vacio` : precioTotal.innerHTML = `El total de su compra es $ ${total}`
+}
 
 function showChart(array) {
-  for (let item of array) {
-    let newItem = document.createElement("div");
-
-    newItem.innerHTML = `<div class="card mb-3" style="max-width: 540px;">
+    chartModal.innerHTML = ""
+    array.forEach((item) => {
+      chartModal.innerHTML += `<div class="card mb-3" style="max-width: 540px;">
       <div class="d-flex align-items-center">
         <div class="col-4">
           <img src="${item.imagen}" class="img-fluid rounded-start imgSizeAdjust" alt="${item.imgAlt}">
@@ -136,18 +140,30 @@ function showChart(array) {
         <div class="col-md-8 text-center hstack">
           <div class="card-body align-evenly">
             <h5 class="card-title">${item.nombre}</h5>
-            <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br>Cantidad: ${item.cantidad} Precio: $ ${item.precio}*${item.cantidad}</p>
+            <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br>Cantidad: ${item.cantidad} Precio: $ ${item.precio*item.cantidad}</p>
             <a id="remove${item.idChart}" class="btn btn-danger">Eliminar</a>
           </div>
         </div>
       </div>
-    </div>`;
-    chartModal.appendChild(newItem);
-  }
+    </div>`
+    });
+
+    // boton eliminar
 
 
+    chartTotal(array)
 }
 
+function carritoVacio(){
+  chartItems = []
+  localStorage.removeItem("chart")
+  showChart(chartItems)
+}
+
+function buscarInfo(buscado, array){
+  let busquedaArray = array.filter(
+      (libro) => libro.autor.toLowerCase().includes(buscado.toLowerCase()) || libro.titulo.toLowerCase().includes(buscado.toLowerCase())
+  ) }
 
 //instanciacion
 
@@ -159,7 +175,10 @@ let chartItems = JSON.parse(localStorage.getItem("chart")) || [];
 
 Catalogo();
 
-showChart(chartItems);
+botonModal.addEventListener("click", () => showChart(chartItems));
 
+vaciarCarrito.addEventListener("click", () => carritoVacio())
 
-
+// buscador.addEventListener("input", ()=>{
+//   buscarInfo(buscador.value.toLowerCase(), estanteria)
+// }) 
