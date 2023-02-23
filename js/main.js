@@ -1,16 +1,4 @@
-//constructora
-class velas {
-  constructor(id, nombre, precio, imagen, imgAlt, descripcion) {
-    (this.id = id), (this.nombre = nombre);
-    this.precio = precio;
-    this.imagen = imagen;
-    this.imgAlt = imgAlt;
-    this.descripcion = descripcion;
-    this.color = undefined
-    this.aroma = undefined
-    this.cantidad = 1
-  }
-}
+
 
 //capturas nodos
 let verCatalogo = document.getElementById("verCatalogo");
@@ -19,6 +7,9 @@ let chartModal = document.getElementById("chartModal");
 let botonModal = document.getElementById("botonModal");
 let precioTotal = document.getElementById("precioTotal");
 let vaciarCarrito = document.getElementById("vaciarCarrito")
+
+
+
 //funciones
 
 const Catalogo = async () => {
@@ -165,20 +156,4 @@ function buscarInfo(buscado, array){
       (libro) => libro.autor.toLowerCase().includes(buscado.toLowerCase()) || libro.titulo.toLowerCase().includes(buscado.toLowerCase())
   ) }
 
-//instanciacion
 
-let grupoVelas = [];
-
-let chartItems = JSON.parse(localStorage.getItem("chart")) || [];
-
-// eventos
-
-Catalogo();
-
-botonModal.addEventListener("click", () => showChart(chartItems));
-
-vaciarCarrito.addEventListener("click", () => carritoVacio())
-
-// buscador.addEventListener("input", ()=>{
-//   buscarInfo(buscador.value.toLowerCase(), estanteria)
-// }) 
