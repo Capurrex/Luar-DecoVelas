@@ -12,6 +12,7 @@ let vaciarCarrito = document.getElementById("vaciarCarrito")
 
 //funciones
 
+//cargar catalogo
 const Catalogo = async () => {
   const response = await fetch("velas.json");
   const data = await response.json();
@@ -29,6 +30,7 @@ const Catalogo = async () => {
   mostrarCatalogo(grupoVelas);
 };
 
+//mostrar catalogo
 function mostrarCatalogo(arrVela) {
   verCatalogo.innerHTML = "";
   for (let vela of arrVela) {
@@ -91,7 +93,8 @@ function mostrarCatalogo(arrVela) {
     });
   }
 }
-
+ 
+// añadir al carro
 function addChart(vela, selectAroma, selectColor ) {
   let cargandoAlCarrito = chartItems.find((item) => item.id == vela.id && item.color.trim() == selectColor.value.trim() && item.aroma.trim() == selectAroma.value.trim());
 
@@ -107,23 +110,38 @@ function addChart(vela, selectAroma, selectColor ) {
     nuevaVela.idChart = vela.id+nuevaVela.color+nuevaVela.aroma;
     chartItems.push(nuevaVela);
     localStorage.setItem("chart", JSON.stringify(chartItems));
+    swal.fire({
+      icon : `success`,
+      text : `el producto fue agregado al carrito`,
+      showCloseButton : true,
+      showConfirmButton: false,
+      timer: 800
+    });
   }
   
   else {
     cargandoAlCarrito.cantidad += 1;
     localStorage.setItem("chart", JSON.stringify(chartItems))
+    swal.fire({
+      icon : `success`,
+      text : `Has agregado una unidad mas al carrito`,
+      showCloseButton : true,
+      showConfirmButton: false,
+      timer: 800
+    });
     }
 }
-
+//sumar valor del carrito
 function chartTotal(array){
   let total = array.reduce((acc, velaCarrito)=> acc + (velaCarrito.precio*velaCarrito.cantidad) ,0)
   total == 0 ? precioTotal.innerHTML =  `El carrito esta vacio` : precioTotal.innerHTML = `El total de su compra es $ ${total}`
+  return total
 }
-
+// mostrar carrito y eliminar agregar en el carrito
 function showChart(array) {
     chartModal.innerHTML = ""
     array.forEach((item) => {
-      chartModal.innerHTML += `<div class="card mb-3" style="max-width: 540px;">
+      chartModal.innerHTML += `<div id="Card${item.idChart}" class="card mb-3" style="max-width: 540px;">
       <div class="d-flex align-items-center">
         <div class="col-4">
           <img src="${item.imagen}" class="img-fluid rounded-start imgSizeAdjust" alt="${item.imgAlt}">
@@ -132,15 +150,50 @@ function showChart(array) {
           <div class="card-body align-evenly">
             <h5 class="card-title">${item.nombre}</h5>
             <p class="card-text">${item.descripcion} <br> Color:${item.color}  Aroma:${item.aroma}  <br>Cantidad: ${item.cantidad} Precio: $ ${item.precio*item.cantidad}</p>
+            <div>
+            <a id="remove1${item.idChart}" class="btn btn-danger">-1</a>
             <a id="remove${item.idChart}" class="btn btn-danger">Eliminar</a>
+            <a id="add1${item.idChart}" class="btn btn-success">+1</a>
+            </div>
           </div>
         </div>
       </div>
     </div>`
     });
 
-    // boton eliminar
+    // boton eliminar individual
+    array.forEach((item)=> {
+      document.getElementById(`remove${item.idChart}`).addEventListener("click", ()=>{
+          let velaChart = document.getElementById(`Card${item.idChart}`)
+          velaChart.remove()
 
+          let chartErase = array.find((vela)=>vela.idChart == item.idChart)
+
+          let posicion = array.indexOf(chartErase)
+          array.splice(posicion,1)
+          localStorage.setItem("chart", JSON.stringify(array))
+          
+          
+          chartTotal(array)
+      })})
+
+      //sumar 1
+      array.forEach((item)=> {
+      document.getElementById(`add1${item.idChart}`).addEventListener(
+        "click", () => {
+          item.cantidad = item.cantidad +1
+          localStorage.setItem("chart", JSON.stringify(array))
+          showChart(array)
+        })}
+      )
+      //restar 1
+      array.forEach((item) => {
+       document.getElementById(`remove1${item.idChart}`).addEventListener("click", () =>{ 
+        item.cantidad = item.cantidad -1
+        if(item.cantidad <= 1) {item.cantidad = 1}
+        localStorage.setItem("chart", JSON.stringify(array))
+        showChart(array)
+      })})
 
     chartTotal(array)
 }
@@ -149,6 +202,7 @@ function carritoVacio(){
   chartItems = []
   localStorage.removeItem("chart")
   showChart(chartItems)
+  chartTotal()
 }
 
 function buscarInfo(buscado, array){
