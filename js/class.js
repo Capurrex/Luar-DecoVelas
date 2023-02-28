@@ -10,14 +10,4 @@ class velas {
       this.aroma = undefined
       this.cantidad = 1
     }
-  
-    add1(){
-    this.cantidad = this.cantidad +1;
-    return this.cantidad
-    }
-
-    remove1(){
-    this.cantidad = this.cantidad -1;
-    return this.cantidad
-    }
   }

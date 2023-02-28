@@ -7,7 +7,7 @@ let chartModal = document.getElementById("chartModal");
 let botonModal = document.getElementById("botonModal");
 let precioTotal = document.getElementById("precioTotal");
 let vaciarCarrito = document.getElementById("vaciarCarrito")
-
+let inputBuscador = document.getElementById("inputBuscador")
 
 
 //funciones
@@ -94,7 +94,7 @@ function mostrarCatalogo(arrVela) {
   }
 }
  
-// añadir al carro
+// añadir al carrito
 function addChart(vela, selectAroma, selectColor ) {
   let cargandoAlCarrito = chartItems.find((item) => item.id == vela.id && item.color.trim() == selectColor.value.trim() && item.aroma.trim() == selectAroma.value.trim());
 
@@ -137,7 +137,7 @@ function chartTotal(array){
   total == 0 ? precioTotal.innerHTML =  `El carrito esta vacio` : precioTotal.innerHTML = `El total de su compra es $ ${total}`
   return total
 }
-// mostrar carrito y eliminar agregar en el carrito
+// mostrar carrito y eliminar/agregar del carrito
 function showChart(array) {
     chartModal.innerHTML = ""
     array.forEach((item) => {
@@ -198,6 +198,7 @@ function showChart(array) {
     chartTotal(array)
 }
 
+//vaciar carrito
 function carritoVacio(){
   chartItems = []
   localStorage.removeItem("chart")
@@ -205,9 +206,15 @@ function carritoVacio(){
   chartTotal()
 }
 
-function buscarInfo(buscado, array){
-  let busquedaArray = array.filter(
-      (libro) => libro.autor.toLowerCase().includes(buscado.toLowerCase()) || libro.titulo.toLowerCase().includes(buscado.toLowerCase())
-  ) }
-
-
+//buscador 
+function buscarVela(buscado, array){
+  let busqueda = array.filter(
+      (velamen) => velamen.nombre.toLowerCase().includes(buscado.toLowerCase()) 
+  )
+  busqueda.length == 0 ? 
+  (match.innerHTML = `<h3>No hay coincidencias con su búsqueda</h3>`, 
+  mostrarCatalogo(busqueda)) 
+  : 
+  (match.innerHTML = "", 
+  mostrarCatalogo(busqueda))
+}

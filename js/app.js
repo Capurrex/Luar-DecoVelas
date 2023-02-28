@@ -12,6 +12,7 @@ botonModal.addEventListener("click", () => showChart(chartItems));
 
 vaciarCarrito.addEventListener("click", () => carritoVacio())
 
-// buscador.addEventListener("input", ()=>{
-//   buscarInfo(buscador.value.toLowerCase(), estanteria)
-// }) 
+inputBuscador.addEventListener("input", ()=>{
+  buscarVela(inputBuscador.value.toLowerCase(),grupoVelas )
+  console.log(inputBuscador.value)
+}) 
