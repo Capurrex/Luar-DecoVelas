@@ -14,7 +14,6 @@ header {
 h1 {
   color: #845EC2;
   font-size: 5rem;
-  font-family: "Alice", serif;
 }
 
 #logoPrincipal {
@@ -24,17 +23,23 @@ h1 {
 h2 {
   color: #845EC2;
   font-size: 3rem;
-  font-family: "Raleway", sans-serif;
 }
 
 h3 {
   color: #845EC2;
   font-size: 2rem;
-  font-family: "Raleway", sans-serif;
 }
 
 .barraBusqueda {
   background-color: #00C9A7;
+}
+
+.fuenteLuar {
+  font-family: "alice", serif;
+}
+
+.fuente2 {
+  font-family: "Raleway", sans-serif;
 }
 
 .mitad {

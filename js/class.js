@@ -20,9 +20,9 @@ let botonModal = document.getElementById("botonModal");
 let precioTotal = document.getElementById("precioTotal");
 let vaciarCarrito = document.getElementById("vaciarCarrito")
 let inputBuscador = document.getElementById("inputBuscador")
+let botonComprar = document.getElementById("botonComprar")
 
 
-//funciones
 
 //cargar catalogo
 const Catalogo = async () => {
@@ -54,7 +54,7 @@ function carritoVacio(){
   chartItems = []
   localStorage.removeItem("chart")
   showChart(chartItems)
-  chartTotal()
+  chartTotal(chartItems)
 }
 
 //buscador 
