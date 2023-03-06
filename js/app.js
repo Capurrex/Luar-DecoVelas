@@ -16,3 +16,7 @@ inputBuscador.addEventListener("input", ()=>{
   buscarVela(inputBuscador.value.toLowerCase(),grupoVelas )
   console.log(inputBuscador.value)
 }) 
+
+botonComprar.addEventListener( "click", ()=>{
+  finalizarCompra()
+})
