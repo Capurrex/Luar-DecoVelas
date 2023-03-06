@@ -24,13 +24,13 @@ function finalizarCompra(){
                 text: `Muchas gracias por su compra!!`,
                 })
                 //enviar mails y mercadopago?
-
+                // pdf si no quieren mail?
                carritoVacio()
         }else{
             Swal.fire({
                 title: 'compra cancelada',
                 icon: 'info',
-                text: `La compra no ha sido realizada! Atención sus productos siguen en el carrito :D`,
+                text: `La compra no ha sido realizada!`,
                 confirmButtonColor: 'green',
                 timer:3500
             })
